@@ -5,7 +5,7 @@ import logo2 from '../assets/logo2.webp'
 import { NavLink } from "react-router";
 const Navbar = () => {
   return (
-    <div className="navbar bg-[#fdfceb] shadow-sm ">
+    <div className="navbar bg-[#fcfbe8] shadow-sm px-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
