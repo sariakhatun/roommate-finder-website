@@ -2,8 +2,17 @@ import React from "react";
 import logo from '../assets/logo.jpg'
 import logo1 from '../assets/logo1.png'
 import logo2 from '../assets/logo2.webp'
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 const Navbar = () => {
+let navigate =useNavigate();
+    let handleLogin = ()=>{
+        navigate('/login')
+        
+    }
+    let handleRegister = () =>{
+        navigate('register')
+    }
+
   return (
     <div className="navbar bg-[#fcfbe8] shadow-sm px-6">
       <div className="navbar-start">
@@ -62,8 +71,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end flex gap-4">
-        <button className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white ">Login</button>
-        <button className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white">SignUP</button>
+        <button onClick={handleLogin} className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white ">Login</button>
+        <button onClick={handleRegister} className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white">SignUP</button>
       </div>
     </div>
   );

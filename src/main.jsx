@@ -11,6 +11,9 @@ import Home from './Components/Home.jsx';
 import FindRoommate from './Pages/FindRoommate.jsx';
 import MyListing from './Pages/MyListing.jsx';
 import BrowseListing from './Pages/BrowseListing.jsx';
+import Login from './Components/Login.jsx';
+import Register from './Components/Register.jsx';
+import AuthProvider from './Components/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,14 +40,26 @@ const router = createBrowserRouter([
         path:'/browseListing',
         element:<BrowseListing></BrowseListing>
       },
+      {
+       
+        path:'/login',
+        element:<Login></Login>
+      },
+      {
+       
+        path:'/register',
+        element:<Register></Register>
+      },
     ]
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <RouterProvider router={router}>
+   <AuthProvider>
+    <RouterProvider router={router}>
    
    </RouterProvider>
+   </AuthProvider>
   </StrictMode>,
 )
