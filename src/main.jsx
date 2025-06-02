@@ -44,7 +44,8 @@ const router = createBrowserRouter([
       {
        
         path:'/browseListing',
-        element:<BrowseListing></BrowseListing>
+        element:<BrowseListing></BrowseListing>,
+        loader: ()=>fetch('http://localhost:3000/rooms')
       },
       {
        
