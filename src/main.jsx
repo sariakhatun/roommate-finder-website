@@ -14,6 +14,8 @@ import BrowseListing from './Pages/BrowseListing.jsx';
 import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
 import AuthProvider from './Components/AuthProvider.jsx';
+import Error from './Pages/Error.jsx';
+import PrivateRoute from './Components/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,12 +30,16 @@ const router = createBrowserRouter([
       {
        
         path:'/roommate',
-        element:<FindRoommate></FindRoommate>
+        element:<PrivateRoute>
+          <FindRoommate></FindRoommate>
+        </PrivateRoute>
       },
       {
        
         path:'/myListing',
-        element:<MyListing></MyListing>
+        element:<PrivateRoute>
+          <MyListing></MyListing>
+        </PrivateRoute>
       },
       {
        
@@ -50,7 +56,12 @@ const router = createBrowserRouter([
         path:'/register',
         element:<Register></Register>
       },
+
     ]
+  },
+  {
+    path: "/*",
+    element: <Error></Error>,
   },
 ]);
 

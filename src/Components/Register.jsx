@@ -71,7 +71,7 @@ const Register = () => {
         })
     }
   let handleGoogleLogin = () => {
-    loginWithGoogle(provider)
+    loginWithGoogle()
       .then((res) => {
         console.log(res);
         toast.success("User Created successfully");
@@ -164,7 +164,7 @@ const Register = () => {
             </button>
             <button
               onClick={handleGoogleLogin}
-              className="btn btn btn-outline hover:bg-[#ff6347] hover:text-white text-[#ff6347]  mt-4"
+              className=" btn btn-outline hover:bg-[#ff6347] hover:text-white text-[#ff6347]  mt-4"
             >
               <FaGoogle size={16}></FaGoogle> Continue With Google
             </button>

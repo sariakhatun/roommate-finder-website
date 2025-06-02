@@ -52,6 +52,8 @@ const Login = () => {
             toast.error(`Failed to sign in',${error.code}`)
         })
     }
+
+     
     return (
         <div className='my-12 flex justify-center mx-auto w-11/12 md:w-2/3 lg:w-1/3'>
          
@@ -74,7 +76,7 @@ const Login = () => {
             error && <p className='text-red-500 text-xs'>{error}</p>
           }
           <button className="btn btn-outline hover:bg-[#ff6347] hover:text-white text-[#ff6347]  mt-4">Login</button>
-                    <button onClick={handleGoogleLogin} className="btn btn-outline hover:bg-[#ff6347] hover:text-white text-[#ff6347]  mt-4"><FaGoogle size={16}></FaGoogle> Continue With Google</button>
+            <button onClick={handleGoogleLogin} className="btn btn-outline hover:bg-[#ff6347] hover:text-white text-[#ff6347]  mt-4"><FaGoogle size={16}></FaGoogle> Continue With Google</button>
           
           <p className='font-bold py-3 text-center'>Don't Have An Account ? <Link className='text-[#ff6347] underline' to='/register'>Register</Link> </p>
         </form>
