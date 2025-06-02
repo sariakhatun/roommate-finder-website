@@ -1,17 +1,34 @@
-import React from "react";
-import logo from '../assets/logo.jpg'
-import logo1 from '../assets/logo1.png'
+import React, { use } from "react";
+import userIcon from '../assets/user.png'
 import logo2 from '../assets/logo2.webp'
 import { NavLink, useNavigate } from "react-router";
+import { AuthContext } from "./AuthContext";
+import { toast, ToastContainer } from "react-toastify";
 const Navbar = () => {
 let navigate =useNavigate();
+    let {user,logOut}=use(AuthContext);
+
     let handleLogin = ()=>{
         navigate('/login')
         
     }
     let handleRegister = () =>{
-        navigate('register')
+        navigate('/register')
     }
+   
+    //console.log(user)
+    let handleLogOut = () =>{
+   
+
+    logOut()
+      .then(() => {
+        toast.success('Logged out successfully!');
+      })
+      .catch(error => {
+        toast.error(`Error: ${error.message}`);
+      });
+    }
+
 
   return (
     <div className="navbar bg-[#fcfbe8] shadow-sm px-6">
@@ -70,10 +87,31 @@ let navigate =useNavigate();
            
         </ul>
       </div>
-      <div className="navbar-end flex gap-4">
+  <div className="navbar-end flex gap-4">
+        {
+        user? <div className="flex gap-3 items-center">
+            <img src={`${user && user.photoURL}`} alt=""  className="w-12 h-12 rounded-full " title={user?user.displayName:''} />
+            <button onClick={handleLogOut} className='btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white'>LogOut</button>
+        </div>:
+        <div className="navbar-end flex gap-4">
         <button onClick={handleLogin} className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white ">Login</button>
         <button onClick={handleRegister} className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white">SignUP</button>
       </div>
+      }
+  </div>
+   <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+ 
     </div>
   );
 };
