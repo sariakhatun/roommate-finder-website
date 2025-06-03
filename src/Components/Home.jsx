@@ -5,6 +5,7 @@ import slide3 from '../assets/slide3.jpg'
 import slide4 from '../assets/slide4.jpg'
 import HowItWorks from "./HowItWorks";
 import UserReviews from "./UserReviews";
+import FeaturedSection from "./FeaturedSection";
 const Home = () => {
   return (
     
@@ -70,6 +71,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/* featured section */}
+
+      <FeaturedSection></FeaturedSection>
             {/* Extra section */}
             <HowItWorks></HowItWorks>
             <UserReviews></UserReviews>

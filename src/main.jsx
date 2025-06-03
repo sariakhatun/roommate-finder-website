@@ -1,75 +1,79 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import MainLayout from './Layouts/MainLayout.jsx';
-import Home from './Components/Home.jsx';
-import FindRoommate from './Pages/FindRoommate.jsx';
-import MyListing from './Pages/MyListing.jsx';
-import BrowseListing from './Pages/BrowseListing.jsx';
-import Login from './Components/Login.jsx';
-import Register from './Components/Register.jsx';
-import AuthProvider from './Components/AuthProvider.jsx';
-import Error from './Pages/Error.jsx';
-import PrivateRoute from './Components/PrivateRoute.jsx';
-import DetailsPage from './Pages/DetailsPage.jsx';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import MainLayout from "./Layouts/MainLayout.jsx";
+import Home from "./Components/Home.jsx";
+import FindRoommate from "./Pages/FindRoommate.jsx";
+import MyListing from "./Pages/MyListing.jsx";
+import BrowseListing from "./Pages/BrowseListing.jsx";
+import Login from "./Components/Login.jsx";
+import Register from "./Components/Register.jsx";
+import AuthProvider from "./Components/AuthProvider.jsx";
+import Error from "./Pages/Error.jsx";
+import PrivateRoute from "./Components/PrivateRoute.jsx";
+import DetailsPage from "./Pages/DetailsPage.jsx";
+import FeaturedSection from "./Components/FeaturedSection.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    children:[
+    children: [
       {
-        index:true,
-        path:'/',
-        element:<Home></Home>
-      },
-      {
-       
-        path:'/roommate',
-        element:<PrivateRoute>
-          <FindRoommate></FindRoommate>
-        </PrivateRoute>
-      },
-      {
-       
-        path:'/myListing',
-        element:<PrivateRoute>
-          <MyListing></MyListing>
-        </PrivateRoute>,
-        loader: ()=>fetch('https://b11a10-server-side-sariakhatun.vercel.app/rooms')
-      },
-      {
-       
-        path:'/browseListing',
-        element:<BrowseListing></BrowseListing>,
-        loader: ()=>fetch('https://b11a10-server-side-sariakhatun.vercel.app/rooms')
-      },
-      {
-       
-        path:'/detailsPage/:id',
-        element:<PrivateRoute>
-          <DetailsPage></DetailsPage>
-        </PrivateRoute>,
-        loader: ({params})=>fetch(`https://b11a10-server-side-sariakhatun.vercel.app/rooms/${params.id}`)
+        index: true,
+        path: "/",
+        element: <Home></Home>,
+        loader: ()=>fetch('http://localhost:3000/featured-rooms')
         
       },
       {
-       
-        path:'/login',
-        element:<Login></Login>
+        path: "/roommate",
+        element: (
+          <PrivateRoute>
+            <FindRoommate></FindRoommate>
+          </PrivateRoute>
+        ),
       },
       {
-       
-        path:'/register',
-        element:<Register></Register>
+        path: "/myListing",
+        element: (
+          <PrivateRoute>
+            <MyListing></MyListing>
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch("https://b11a10-server-side-sariakhatun.vercel.app/rooms"),
+      },
+      {
+        path: "/browseListing",
+        element: <BrowseListing></BrowseListing>,
+        loader: () =>
+          fetch("https://b11a10-server-side-sariakhatun.vercel.app/rooms"),
       },
 
-    ]
+      {
+        path: "/detailsPage/:id",
+        element: (
+          <PrivateRoute>
+            <DetailsPage></DetailsPage>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://b11a10-server-side-sariakhatun.vercel.app/rooms/${params.id}`
+          ),
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+    ],
   },
   {
     path: "/*",
@@ -77,12 +81,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-   <AuthProvider>
-    <RouterProvider router={router}>
-   
-   </RouterProvider>
-   </AuthProvider>
-  </StrictMode>,
-)
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
+  </StrictMode>
+);
