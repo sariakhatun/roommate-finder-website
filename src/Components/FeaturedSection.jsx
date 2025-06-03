@@ -5,7 +5,7 @@ import { FaMoneyBillWave, FaCheckCircle } from "react-icons/fa";
 
 const FeaturedSection = () => {
   let rooms = useLoaderData();
-  console.log(rooms);
+ // console.log(rooms);
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">

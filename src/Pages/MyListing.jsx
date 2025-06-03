@@ -10,9 +10,9 @@ const MyListing = () => {
   
   let { user } = use(AuthContext);
   //console.log(user);
-  console.log(rooms);
+ // console.log(rooms);
   let remainingRooms = rooms.filter((room) => room.userEmail === user.email);
-  console.log(remainingRooms);
+ // console.log(remainingRooms);
 
  
 

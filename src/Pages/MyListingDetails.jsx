@@ -8,7 +8,7 @@ const MyListingDetails = ({room,index,rooms,setRooms}) => {
    //console.log(_id)
 
      let handleDelete = (_id) => {
-        console.log(_id);
+        //console.log(_id);
         Swal.fire({
           title: "Are you sure?",
           text: "You won't be able to revert this!",
@@ -18,7 +18,7 @@ const MyListingDetails = ({room,index,rooms,setRooms}) => {
           cancelButtonColor: "#d33",
           confirmButtonText: "Yes, delete it!",
         }).then((result) => {
-            console.log(result.isConfirmed)
+            //console.log(result.isConfirmed)
           if (result.isConfirmed) {
             
             fetch(`https://b11a10-server-side-sariakhatun.vercel.app/rooms/${_id}`,{
@@ -26,7 +26,7 @@ const MyListingDetails = ({room,index,rooms,setRooms}) => {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log('after delete',data)
+               // console.log('after delete',data)
             })
     
             Swal.fire({

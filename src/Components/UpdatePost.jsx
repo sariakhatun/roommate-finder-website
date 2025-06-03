@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const UpdatePost = () => {
     
     let room = useLoaderData()
-    console.log(room)
+   // console.log(room)
    let {rent,title,location,roomType,lifestyle,description,contactInfo,availability,_id} = room
      let navigate = useNavigate()
     let {user} = use(AuthContext)
@@ -15,7 +15,7 @@ const UpdatePost = () => {
         let form = e.target;
         let formData = new FormData(form);
         let updatedRoom = Object.fromEntries(formData.entries())
-        console.log(updatedRoom)
+       // console.log(updatedRoom)
 
          //send updated room to db
 
@@ -28,7 +28,7 @@ const UpdatePost = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+           // console.log(data)
             if(data.modifiedCount){
                 Swal.fire({
                             position: "top-end",

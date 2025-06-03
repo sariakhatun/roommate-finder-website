@@ -16,13 +16,13 @@ import { FaMoneyBill1Wave } from 'react-icons/fa6';
 
 const DetailsPage = () => {
     let {user}=use(AuthContext)
-    console.log(user)
+   // console.log(user)
 
 
     let roomData = useLoaderData();
-    console.log(roomData)
+    //console.log(roomData)
 
-    
+
     let {rent,location,availability,contactInfo,description,lifestyle,roomType,title,userName,userEmail}=roomData
 
    

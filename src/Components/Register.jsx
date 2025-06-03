@@ -43,7 +43,7 @@ const Register = () => {
         createUser(email,password)
         .then(res=>{
             let user=res.user
-            console.log(user);
+           // console.log(user);
            updateUser({
             displayName:name,
             photoURL:photo

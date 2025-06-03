@@ -10,7 +10,7 @@ const FindRoommate = () => {
     let form = e.target;
     let formData = new FormData(form);
     let newRoom = Object.fromEntries(formData.entries());
-    console.log(newRoom);
+   // console.log(newRoom);
 
     //send data to the server
     fetch("https://b11a10-server-side-sariakhatun.vercel.app/rooms", {
@@ -22,7 +22,7 @@ const FindRoommate = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("after adding room to db", data);
+       // console.log("after adding room to db", data);
         if (data.insertedId) {
           Swal.fire({
             position: "top-end",
