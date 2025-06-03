@@ -16,6 +16,7 @@ import Register from './Components/Register.jsx';
 import AuthProvider from './Components/AuthProvider.jsx';
 import Error from './Pages/Error.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
+import DetailsPage from './Pages/DetailsPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,13 +40,23 @@ const router = createBrowserRouter([
         path:'/myListing',
         element:<PrivateRoute>
           <MyListing></MyListing>
-        </PrivateRoute>
+        </PrivateRoute>,
+        loader: ()=>fetch('http://localhost:3000/rooms')
       },
       {
        
         path:'/browseListing',
         element:<BrowseListing></BrowseListing>,
         loader: ()=>fetch('http://localhost:3000/rooms')
+      },
+      {
+       
+        path:'/detailsPage/:id',
+        element:<PrivateRoute>
+          <DetailsPage></DetailsPage>
+        </PrivateRoute>,
+        loader: ({params})=>fetch(`http://localhost:3000/rooms/${params.id}`)
+        
       },
       {
        

@@ -118,13 +118,13 @@ const FindRoommate = () => {
         <input
           type="text"
           value={user?.email || "Loading..."}
-          readOnly
+          readOnly name="userEmail"
           className="input input-bordered w-full bg-gray-100"
         />
         <input
           type="text"
           value={user?.displayName || "Loading..."}
-          readOnly
+          readOnly name="userName"
           className="input input-bordered w-full bg-gray-100"
         />
 

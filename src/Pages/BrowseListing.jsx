@@ -1,6 +1,6 @@
 import React from "react";
 import { FaHome } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const BrowseListing = () => {
   let rooms = useLoaderData();
@@ -12,20 +12,20 @@ const BrowseListing = () => {
         <FaHome></FaHome>
         Find Your Perfect Roommate
       </h2>
-      <p className="text-center mb-12 w-3/5 mx-auto">
+      <p className="text-center mb-12 w-4/5 lg:w-3/5 mx-auto">
         Browse through listings to find your perfect roommate. Easily explore
         posts by others, view details, and connect with a match. Find someone
         who fits your lifestyle, budget, and location.
       </p>
       <div className="overflow-x-auto">
-        <table className="table table-xs w-[300px] md:w-[720px] lg:w-[1084px] mx-auto">
-          <thead className="">
+        <table className="table table-xs w-[270px] md:w-[720px] lg:w-[1084px] mx-auto">
+          <thead className="bg-gray-100">
             <tr className="">
-              <th>No</th>
-              <th>Title </th>
-              <th>Location</th>
-              <th>Rent Amount</th>
-              <th>Action</th>
+              <th className="p-3  text-center">No</th>
+              <th className="p-3  text-center">Title </th>
+              <th className="p-3  text-center">Location</th>
+              <th className="p-3  text-center">Rent </th>
+              <th className="p-3  text-center">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -43,11 +43,12 @@ const BrowseListing = () => {
                 <td className="text-[10px] md:text-xs   lg:text-base py-4">
                   {room.rent}
                 </td>
+                <Link to={`/detailsPage/${room._id}`}>
                 <td className="  py-4 flex items-center justify-center">
                   <button className="btn btn-xs btn-outline text-[#ff6347]  hover:bg-[#ff6347]  hover:text-white">
                     See More
                   </button>
-                </td>
+                </td></Link>
               </tr>
             ))}
           </tbody>
