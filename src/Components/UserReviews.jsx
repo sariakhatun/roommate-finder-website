@@ -4,7 +4,7 @@ import { FcRating } from "react-icons/fc";
 const UserReviews = () => {
   return (
     <div>
-      <section className=" py-12 ">
+      <section className=" py-12 my-8">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-2xl lg:text-3xl font-bold  text-[#ff6347] mb-4 flex gap-2 items-center justify-center">
         <FcRating></FcRating> What Our Users Say

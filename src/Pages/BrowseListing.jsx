@@ -6,7 +6,7 @@ const BrowseListing = () => {
   let rooms = useLoaderData();
   console.log(rooms);
   return (
-    <div className=" mx-auto my-12">
+    <div className=" mx-auto my-24">
       <h2 className="text-xl lg:text-3xl font-extrabold mb-6 justify-center flex gap-2 items-center text-[#ff6347]">
      
         <FaHome></FaHome>

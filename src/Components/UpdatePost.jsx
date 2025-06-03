@@ -1,53 +1,60 @@
-import React, { use } from "react";
-import { AuthContext } from "../Components/AuthContext";
-import Swal from "sweetalert2";
+import React, { use } from 'react';
+import { AuthContext } from './AuthContext';
+import { useLoaderData, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
-const FindRoommate = () => {
-  let { user } = use(AuthContext);
+const UpdatePost = () => {
+    
+    let room = useLoaderData()
+    console.log(room)
+   let {rent,title,location,roomType,lifestyle,description,contactInfo,availability,_id} = room
+     let navigate = useNavigate()
+    let {user} = use(AuthContext)
+    let handleUpdate = e =>{
+        e.preventDefault();
+        let form = e.target;
+        let formData = new FormData(form);
+        let updatedRoom = Object.fromEntries(formData.entries())
+        console.log(updatedRoom)
 
-  let handleAddListing = (e) => {
-    e.preventDefault();
-    let form = e.target;
-    let formData = new FormData(form);
-    let newRoom = Object.fromEntries(formData.entries());
-    console.log(newRoom);
+         //send updated room to db
 
-    //send data to the server
-    fetch("https://b11a10-server-side-sariakhatun.vercel.app/rooms", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newRoom),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("after adding room to db", data);
-        if (data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      });
-  };
+        fetch(`http://localhost:3000/rooms/${_id}`,{
+            method:'PUT',
+            headers:{
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(updatedRoom)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.modifiedCount){
+                Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Post Updated Successfully",
+                            showConfirmButton: false,
+                            timer: 1500,
+                          });
+                navigate('/myListing')
+            }
+        })
+    } 
 
-  return (
-   <div className="w-11/12  mx-auto ">
+    return (
+          <div className="w-11/12  mx-auto ">
     <h2 className="text-2xl font-bold mt-8 mb-4 text-center text-[#ff6347] ">
-        Post a Roommate Listing
+        Update Post
       </h2>
-      <p className="w-4/5 lg:w-3/5 mx-auto text-center">Looking for someone to share your space and split the rent? Post your roommate listing here and connect with like-minded individuals who are clean, respectful, and ready to move in. Whether you’ve got a spare room or want to fill a shared one, your perfect roommate might be just a click away!</p>
+      <p className="w-4/5 lg:w-3/5 mx-auto text-center">Need to make changes? Keep your listing fresh by updating your rent, location, or preferences. A quick update can help you connect with the perfect roommate even faster.</p>
      <div className=" max-w-2xl my-10 p-6 border border-gray-200 rounded-lg shadow-md mx-auto">
       
-      <form onSubmit={handleAddListing} className="space-y-4">
+      <form onSubmit={handleUpdate} className="space-y-4">
         <input
           type="text"
           name="title"
-          required
+          required defaultValue={title}
           className="input input-bordered w-full"
           placeholder="Title (e.g., Looking for a roommate in NYC)"
         />
@@ -55,7 +62,7 @@ const FindRoommate = () => {
         <input
           type="text"
           name="location"
-          required
+          required defaultValue={location}
           className="input input-bordered w-full"
           placeholder="Location"
         />
@@ -63,14 +70,14 @@ const FindRoommate = () => {
         <input
           type="number"
           name="rent"
-          required
+          required defaultValue={rent}
           className="input input-bordered w-full"
           placeholder="Rent Amount"
         />
 
         <select
           name="roomType"
-          required
+          required defaultValue={roomType}
           className="select select-bordered w-full"
         >
           <option value="">Select Room Type</option>
@@ -80,7 +87,7 @@ const FindRoommate = () => {
 
         <select
           name="lifestyle"
-          id="lifestyle"
+          id="lifestyle" defaultValue={lifestyle}
           className="select select-bordered w-full"
           required
         >
@@ -95,7 +102,7 @@ const FindRoommate = () => {
         <textarea
           name="description"
           required
-          rows="3"
+          rows="3" defaultValue={description}
           className="textarea textarea-bordered w-full"
           placeholder="Description"
         ></textarea>
@@ -103,14 +110,14 @@ const FindRoommate = () => {
         <input
           type="text"
           name="contactInfo"
-          required
+          required defaultValue={contactInfo}
           className="input input-bordered w-full"
           placeholder="Contact Info (phone, email, etc.)"
         />
 
         <select
           name="availability"
-          required
+          required defaultValue={availability}
           className="select select-bordered w-full"
         >
           <option value="available">Available</option>
@@ -135,12 +142,12 @@ const FindRoommate = () => {
           type="submit"
           className="btn bg-[#ff6347] text-white w-full hover:bg-[#e05641]"
         >
-          Add Listing
+          Update Listing
         </button>
       </form>
     </div>
    </div>
-  );
+    );
 };
 
-export default FindRoommate;
+export default UpdatePost;

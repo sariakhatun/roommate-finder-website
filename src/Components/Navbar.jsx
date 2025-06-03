@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar  shadow-sm px-6 w-11/12 mx-auto">
+    <div className="navbar  shadow-sm pl-0 lg:pl-6 pr-9 lg:pr-6 w-11/12 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,7 +60,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div>
-          <img src={logo2} alt="" className="w-24 " />
+          <img src={logo2} alt="" className="w-16 lg:w-24 " />
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -76,8 +76,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-end flex gap-4">
         {user ? (
-          <div className="flex gap-3 items-center">
-            <label className="flex cursor-pointer gap-2">
+          <div className="flex gap-1  lg:gap-3 items-center">
+            <label className="flex cursor-pointer  lg:gap-2 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -95,7 +95,7 @@ const Navbar = () => {
               <input
                 type="checkbox"
                 value="dark"
-                className="toggle theme-controller"
+                className="toggle theme-controller w-9 "
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,18 +114,18 @@ const Navbar = () => {
             <img
               src={`${user && user.photoURL}`}
               alt=""
-              className="w-12 h-12 rounded-full "
+              className="w-8 h-8 lg:w-12 lg:h-12 rounded-full "
               title={user ? user.displayName : ""}
             />
             <button
               onClick={handleLogOut}
-              className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white"
+              className="btn btn-xs lg:btn-sm btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white"
             >
               LogOut
             </button>
           </div>
         ) : (
-          <div className="navbar-end flex gap-4">
+          <div className="navbar-end flex gap-2 lg:gap-4">
             <label className="flex cursor-pointer gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -162,13 +162,13 @@ const Navbar = () => {
             </label>
             <button
               onClick={handleLogin}
-              className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white "
+              className="btn btn-xs lg:btn-sm btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white "
             >
               Login
             </button>
             <button
               onClick={handleRegister}
-              className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white"
+              className="btn btn-xs lg:btn-sm  btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white"
             >
               SignUP
             </button>

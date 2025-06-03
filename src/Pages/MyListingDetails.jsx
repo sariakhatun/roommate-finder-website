@@ -1,6 +1,7 @@
 import React from 'react';
 import Swal from 'sweetalert2';
 import { FaTrashAlt, FaEdit, FaHome } from "react-icons/fa";
+import { Link } from 'react-router';
 const MyListingDetails = ({room,index}) => {
     //console.log(room)
    let {_id}=room
@@ -62,13 +63,16 @@ const MyListingDetails = ({room,index}) => {
                       </span>
                     </td>
                     <td className="py-4 my-auto flex items-center justify-center gap-4 mt-5 lg:mt-0">
-                      <button
+                        <Link to={`/updatePost/${_id}`}>
+                        <button
                         title="update"
                         className="text-blue-600 hover:bg-blue-800 btn btn-xs btn-outline hover:text-white"
                         
                       >
                         <FaEdit />
-                      </button>
+                      </button></Link>
+                      
+                     
                       <button
                         onClick={()=>handleDelete(_id)}
                         title="delete"
@@ -76,6 +80,7 @@ const MyListingDetails = ({room,index}) => {
                       >
                         <FaTrashAlt />
                       </button>
+
                     </td>
                   </tr>
     );

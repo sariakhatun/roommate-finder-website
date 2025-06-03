@@ -15,6 +15,7 @@ import Error from "./Pages/Error.jsx";
 import PrivateRoute from "./Components/PrivateRoute.jsx";
 import DetailsPage from "./Pages/DetailsPage.jsx";
 import FeaturedSection from "./Components/FeaturedSection.jsx";
+import UpdatePost from "./Components/UpdatePost.jsx";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,16 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://b11a10-server-side-sariakhatun.vercel.app/rooms/${params.id}`
           ),
+      },
+      {
+        path: "/updatePost/:id",
+        element: (
+         
+            <UpdatePost></UpdatePost>
+         
+        ),
+        loader: ({params})=>fetch(`https://b11a10-server-side-sariakhatun.vercel.app/rooms/${params.id}`)
+       
       },
       {
         path: "/login",
