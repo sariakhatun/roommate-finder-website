@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         index: true,
         path: "/",
         element: <Home></Home>,
-        loader: ()=>fetch('http://localhost:3000/featured-rooms')
+         loader: ()=>fetch('http://localhost:3000/featured-rooms')
         
       },
       {
@@ -44,13 +44,13 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () =>
-          fetch("https://b11a10-server-side-sariakhatun.vercel.app/rooms"),
+          fetch("http://localhost:3000/rooms"),
       },
       {
         path: "/browseListing",
         element: <BrowseListing></BrowseListing>,
         loader: () =>
-          fetch("https://b11a10-server-side-sariakhatun.vercel.app/rooms"),
+          fetch("http://localhost:3000/rooms"),
       },
 
       {
@@ -61,8 +61,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://b11a10-server-side-sariakhatun.vercel.app/rooms/${params.id}`
+          fetch(`http://localhost:3000/rooms/${params.id}`
           ),
       },
       {

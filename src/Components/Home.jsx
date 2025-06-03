@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import slide1 from '../assets/slide1.jpg'
 import slide2 from '../assets/slide2.jpg'
 import slide3 from '../assets/slide3.jpg'
@@ -7,6 +7,8 @@ import HowItWorks from "./HowItWorks";
 import UserReviews from "./UserReviews";
 import FeaturedSection from "./FeaturedSection";
 const Home = () => {
+
+   
   return (
     
      <div>
@@ -73,7 +75,7 @@ const Home = () => {
       </div>
       {/* featured section */}
 
-      <FeaturedSection></FeaturedSection>
+       <FeaturedSection></FeaturedSection> 
             {/* Extra section */}
             <HowItWorks></HowItWorks>
             <UserReviews></UserReviews>

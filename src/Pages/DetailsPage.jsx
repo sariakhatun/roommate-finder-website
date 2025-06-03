@@ -17,8 +17,12 @@ import { FaMoneyBill1Wave } from 'react-icons/fa6';
 const DetailsPage = () => {
     let {user}=use(AuthContext)
     console.log(user)
+
+
     let roomData = useLoaderData();
     console.log(roomData)
+
+    
     let {rent,location,availability,contactInfo,description,lifestyle,roomType,title,userName,userEmail}=roomData
 
    
@@ -26,7 +30,7 @@ const DetailsPage = () => {
   const [likeCount, setLikeCount] = useState(0);
   const [liked, setLiked] = useState(false);
 
-  
+
   useEffect(() => {
     const savedLikes = localStorage.getItem(`likes_${title}`);
     if (savedLikes) setLikeCount(parseInt(savedLikes));
@@ -55,19 +59,11 @@ const DetailsPage = () => {
       {/* Title + Like */}
       <div className="flex justify-between items-start mb-4">
         <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
-        <button
-          onClick={handleLike}
-          className={`text-2xl transition duration-200 ${
-            user?.email === userEmail ? 'text-gray-400 cursor-not-allowed' : 'text-red-500 hover:scale-110'
-          }`}
-          disabled={user?.email === userEmail}
-        >
-          {liked ? <FaHeart /> : <FaRegHeart />}
-        </button>
+        
       </div>
 
       {/* Info Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700">
+      <div className="grid grid-cols-1  gap-4 text-gray-700">
         <div className="flex items-center gap-2">
           <FaMapMarkerAlt className="text-red-500" />
           <span><strong>Location:</strong> {location}</span>
@@ -96,11 +92,25 @@ const DetailsPage = () => {
           )}
           <span><strong>Availability:</strong> {availability}</span>
         </div>
+        <div className=''>
+            
+            <button
+          onClick={handleLike}
+          className={`text-2xl transition duration-200 flex gap-2 items-center ${
+            user?.email === userEmail ? 'text-gray-400 cursor-not-allowed' : 'text-red-500 hover:scale-110'
+          }`}
+          disabled={user?.email === userEmail}
+        > <p className='font-bold text-sm'>Like this post</p>
+          {liked ? <FaHeart /> : <FaRegHeart />}
+        </button>
+        </div>
 
-        <div className="flex items-center gap-2">
+       {
+        liked &&  <div className="flex items-center gap-2">
           <FaPhoneAlt className="text-indigo-500" />
           <span><strong>Contact:</strong> {contactInfo}</span>
         </div>
+       }
       </div>
 
       {/* Description */}

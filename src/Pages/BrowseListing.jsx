@@ -44,7 +44,7 @@ const BrowseListing = () => {
                   {room.rent}
                 </td>
                 <Link to={`/detailsPage/${room._id}`}>
-                <td className="  py-4 flex items-center justify-center">
+                <td className="mt-4 lg:mt-0  py-4 flex items-center justify-center">
                   <button className="btn btn-xs btn-outline text-[#ff6347]  hover:bg-[#ff6347]  hover:text-white">
                     See More
                   </button>

@@ -13,7 +13,7 @@ const FindRoommate = () => {
     console.log(newRoom);
 
     //send data to the server
-    fetch("https://b11a10-server-side-sariakhatun.vercel.app/rooms", {
+    fetch("http://localhost:3000/rooms", {
       method: "POST",
       headers: {
         "content-type": "application/json",
