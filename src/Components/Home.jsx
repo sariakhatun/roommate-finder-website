@@ -3,10 +3,14 @@ import slide1 from '../assets/slide1.jpg'
 import slide2 from '../assets/slide2.jpg'
 import slide3 from '../assets/slide3.jpg'
 import slide4 from '../assets/slide4.jpg'
+import HowItWorks from "./HowItWorks";
+import UserReviews from "./UserReviews";
 const Home = () => {
   return (
     
-      <div className="carousel w-full mb-8">
+     <div>
+        {/* banner */}
+         <div className="carousel w-full mb-8">
         <div id="slide1" className="carousel-item relative w-full h-[500px] lg:h-[625px]">
           <img
             src={slide1}
@@ -66,7 +70,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-
+            {/* Extra section */}
+            <HowItWorks></HowItWorks>
+            <UserReviews></UserReviews>
+     </div>
   );
 };
 

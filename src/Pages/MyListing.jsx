@@ -12,7 +12,17 @@ const MyListing = () => {
   console.log(remainingRooms);
   return (
     <div className=" mx-auto my-12">
-      <h1 className="text-2xl lg:text-3xl font-bold text-center text-indigo-700 my-6 flex items-center justify-center gap-2">
+      
+        {
+        remainingRooms.length === 0 ? (
+              <tr>
+                <td colSpan="5" className="text-center p-5 text-gray-500">
+                  You have no listings yet.
+                </td>
+              </tr>
+            ):
+            <div>
+                <h1 className="text-2xl lg:text-3xl font-bold text-center text-indigo-700 my-6 flex items-center justify-center gap-2">
         <FaHome></FaHome> My Roommate Listings
       </h1>
       <p className="text-center text-gray-600 w-4/5  lg:w-3/5 mx-auto mb-11">
@@ -71,16 +81,13 @@ const MyListing = () => {
                 </td>
               </tr>
             ))}
-            {remainingRooms.length === 0 && (
-              <tr>
-                <td colSpan="5" className="text-center p-5 text-gray-500">
-                  You have no listings yet.
-                </td>
-              </tr>
-            )}
+            
           </tbody>
         </table>
       </div>
+            </div>
+        }
+      
     </div>
   );
 };

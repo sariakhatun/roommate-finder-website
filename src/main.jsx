@@ -41,13 +41,13 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <MyListing></MyListing>
         </PrivateRoute>,
-        loader: ()=>fetch('http://localhost:3000/rooms')
+        loader: ()=>fetch('https://b11a10-server-side-sariakhatun.vercel.app/rooms')
       },
       {
        
         path:'/browseListing',
         element:<BrowseListing></BrowseListing>,
-        loader: ()=>fetch('http://localhost:3000/rooms')
+        loader: ()=>fetch('https://b11a10-server-side-sariakhatun.vercel.app/rooms')
       },
       {
        
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <DetailsPage></DetailsPage>
         </PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:3000/rooms/${params.id}`)
+        loader: ({params})=>fetch(`https://b11a10-server-side-sariakhatun.vercel.app/rooms/${params.id}`)
         
       },
       {
