@@ -5,13 +5,13 @@ import { TbCircleNumber1, TbCircleNumber2, TbCircleNumber3 } from "react-icons/t
 const HowItWorks = () => {
   return (
     <div className="my-8">
-      <section className="bg-gray-50 py-10">
+      <section className=" py-10">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-[#ff6347] mb-4 flex justify-center items-center gap-2">
             <FaSearchLocation />
             How It Works
           </h2>
-          <p className="text-gray-600 mb-8">
+          <p className="mb-8">
             Finding a roommate has never been easier! Just follow these simple steps:
           </p>
           <div className="grid md:grid-cols-3 gap-8 text-left">

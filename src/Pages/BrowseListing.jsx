@@ -19,7 +19,7 @@ const BrowseListing = () => {
       </p>
       <div className="overflow-x-auto">
         <table className="table table-xs w-[270px] md:w-[720px] lg:w-[1084px] mx-auto">
-          <thead className="bg-gray-100">
+          <thead className="">
             <tr className="">
               <th className="p-3  text-center">No</th>
               <th className="p-3  text-center">Title </th>

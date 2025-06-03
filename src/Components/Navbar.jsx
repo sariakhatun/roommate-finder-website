@@ -1,37 +1,32 @@
 import React, { use } from "react";
-import userIcon from '../assets/user.png'
-import logo2 from '../assets/logo2.webp'
+import logo2 from "../assets/logo2.webp";
 import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "./AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 const Navbar = () => {
-let navigate =useNavigate();
-    let {user,logOut}=use(AuthContext);
+  let navigate = useNavigate();
+  let { user, logOut } = use(AuthContext);
 
-    let handleLogin = ()=>{
-        navigate('/login')
-        
-    }
-    let handleRegister = () =>{
-        navigate('/register')
-    }
-   
-    //console.log(user)
-    let handleLogOut = () =>{
-   
+  let handleLogin = () => {
+    navigate("/login");
+  };
+  let handleRegister = () => {
+    navigate("/register");
+  };
 
+  //console.log(user)
+  let handleLogOut = () => {
     logOut()
       .then(() => {
-        toast.success('Logged out successfully!');
+        toast.success("Logged out successfully!");
       })
-      .catch(error => {
+      .catch((error) => {
         toast.error(`Error: ${error.message}`);
       });
-    }
-
+  };
 
   return (
-    <div className="navbar bg-[#fcfbe8] shadow-sm px-6 w-11/12 mx-auto">
+    <div className="navbar  shadow-sm px-6 w-11/12 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -55,51 +50,132 @@ let navigate =useNavigate();
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <NavLink to='/'>Home</NavLink>
-           
-              <NavLink to='/roommate'>Find Roommate</NavLink>
-              
-           
-          
-              <NavLink to='/browseListing'>Browse Listing</NavLink>
-          
-            
-                <NavLink to='/myListing'>My Listing</NavLink>
-           
+            <NavLink to="/">Home</NavLink>
+
+            <NavLink to="/roommate">Find Roommate</NavLink>
+
+            <NavLink to="/browseListing">Browse Listing</NavLink>
+
+            <NavLink to="/myListing">My Listing</NavLink>
           </ul>
         </div>
         <div>
-            <img src={logo2} alt="" className="w-24 "/>
+          <img src={logo2} alt="" className="w-24 " />
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 flex gap-4 items-center">
-          <NavLink to='/'>Home</NavLink>
-           
-              <NavLink to='/roommate'>Find Roommate</NavLink>
-              
-           
-          
-              <NavLink to='/browseListing'>Browse Listing</NavLink>
-          
-            
-                <NavLink to='/myListing'>My Listing</NavLink>
-           
+          <NavLink to="/">Home</NavLink>
+
+          <NavLink to="/roommate">Find Roommate</NavLink>
+
+          <NavLink to="/browseListing">Browse Listing</NavLink>
+
+          <NavLink to="/myListing">My Listing</NavLink>
         </ul>
       </div>
-  <div className="navbar-end flex gap-4">
-        {
-        user? <div className="flex gap-3 items-center">
-            <img src={`${user && user.photoURL}`} alt=""  className="w-12 h-12 rounded-full " title={user?user.displayName:''} />
-            <button onClick={handleLogOut} className='btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white'>LogOut</button>
-        </div>:
-        <div className="navbar-end flex gap-4">
-        <button onClick={handleLogin} className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white ">Login</button>
-        <button onClick={handleRegister} className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white">SignUP</button>
+      <div className="navbar-end flex gap-4">
+        {user ? (
+          <div className="flex gap-3 items-center">
+            <label className="flex cursor-pointer gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+              </svg>
+              <input
+                type="checkbox"
+                value="dark"
+                className="toggle theme-controller"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </label>
+            <img
+              src={`${user && user.photoURL}`}
+              alt=""
+              className="w-12 h-12 rounded-full "
+              title={user ? user.displayName : ""}
+            />
+            <button
+              onClick={handleLogOut}
+              className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white"
+            >
+              LogOut
+            </button>
+          </div>
+        ) : (
+          <div className="navbar-end flex gap-4">
+            <label className="flex cursor-pointer gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+              </svg>
+              <input
+                type="checkbox"
+                value="dark"
+                className="toggle theme-controller"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </label>
+            <button
+              onClick={handleLogin}
+              className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white "
+            >
+              Login
+            </button>
+            <button
+              onClick={handleRegister}
+              className="btn btn-outline text-[#ff6347] hover:bg-[#ff6347] hover:text-white"
+            >
+              SignUP
+            </button>
+          </div>
+        )}
       </div>
-      }
-  </div>
-   <ToastContainer
+      <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}
@@ -111,7 +187,6 @@ let navigate =useNavigate();
         pauseOnHover
         theme="colored"
       />
- 
     </div>
   );
 };

@@ -13,7 +13,7 @@ const FindRoommate = () => {
     console.log(newRoom);
 
     //send data to the server
-    fetch("http://localhost:3000/rooms", {
+    fetch("https://b11a10-server-side-sariakhatun.vercel.app/rooms", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -119,13 +119,13 @@ const FindRoommate = () => {
           type="text"
           value={user?.email || "Loading..."}
           readOnly name="userEmail"
-          className="input input-bordered w-full bg-gray-100"
+          className="input input-bordered w-full "
         />
         <input
           type="text"
           value={user?.displayName || "Loading..."}
           readOnly name="userName"
-          className="input input-bordered w-full bg-gray-100"
+          className="input input-bordered w-full "
         />
 
         <button

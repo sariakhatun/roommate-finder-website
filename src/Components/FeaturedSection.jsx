@@ -12,7 +12,7 @@ const FeaturedSection = () => {
       <h2 className="text-3xl font-bold text-center text-[#ff6347] mb-4">
         Find Your Perfect Roommate
       </h2>
-      <p className="text-center text-gray-600 mb-8">
+      <p className="text-center mb-8">
         Say goodbye to stressful roommate hunting! We've spotlighted the best
         available listings just for you—safe, affordable, and ready to move in.
         Find your perfect match and start living smarter today!
@@ -21,7 +21,7 @@ const FeaturedSection = () => {
         {rooms.map((room) => (
           <div
             key={room._id}
-            className="bg-white shadow-lg p-5 rounded-lg border border-gray-100"
+            className=" shadow-lg p-5 rounded-lg border border-gray-100"
           >
             <h3 className="text-xl font-semibold text-indigo-700 mb-2 flex items-center gap-2">
               {room.title}

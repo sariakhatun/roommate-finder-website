@@ -20,7 +20,7 @@ const MyListingDetails = ({room,index}) => {
             console.log(result.isConfirmed)
           if (result.isConfirmed) {
             
-            fetch(`http://localhost:3000/rooms/${_id}`,{
+            fetch(`https://b11a10-server-side-sariakhatun.vercel.app/rooms/${_id}`,{
                 method:'DELETE'
             })
             .then(res=>res.json())
@@ -37,7 +37,7 @@ const MyListingDetails = ({room,index}) => {
         });
       };
     return (
-        <tr className="text-center hover:bg-gray-50">
+        <tr className="text-center ">
                     <th className="text-[10px] md:text-xs lg:text-base py-4 ">
                       {index + 1}
                     </th>

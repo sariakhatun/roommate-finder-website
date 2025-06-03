@@ -29,14 +29,14 @@ const MyListing = () => {
           <h1 className="text-2xl lg:text-3xl font-bold text-center text-indigo-700 my-6 flex items-center justify-center gap-2">
             <FaHome></FaHome> My Roommate Listings
           </h1>
-          <p className="text-center text-gray-600 w-4/5  lg:w-3/5 mx-auto mb-11">
+          <p className="text-center text-gray-8=200 w-4/5  lg:w-3/5 mx-auto mb-11">
             Here you can view, update, or delete your roommate finding posts.
             Only your own listings are visible on this page — your roommate
             journey, your control.
           </p>
           <div className=" overflow-x-auto">
             <table className="table table-xs w-[300px] md:w-[720px] lg:w-[1084px] mx-auto">
-              <thead className="bg-gray-100">
+              <thead className="">
                 <tr>
                   <th className="p-3  text-center">No</th>
                   <th className="p-3  text-center">Title</th>
