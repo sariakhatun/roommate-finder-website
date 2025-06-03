@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
 import { toast, ToastContainer } from "react-toastify";
-import { provider } from "./AuthProvider";
 import { FaEyeSlash, FaGoogle, FaRegEye } from "react-icons/fa";
+import { provider } from "./AuthProvider";
 const Register = () => {
   let { createUser, setUser,updateUser, loginWithGoogle } = use(AuthContext);
 
@@ -70,20 +70,20 @@ const Register = () => {
             //setErrorMessage(error.message)
         })
     }
-  let handleGoogleLogin = () => {
-    loginWithGoogle()
-      .then((res) => {
-        console.log(res);
-        toast.success("User Created successfully");
-        setTimeout(() => {
-          navigate("/");
-        }, 1500);
-      })
-      .catch((error) => {
-        //console.log(error)
-        toast.error(`Failed to sign up',${error.code}`);
-      });
-  };
+    let handleGoogleLogin=()=>{
+        loginWithGoogle(provider)
+        .then(res=>{
+            //console.log(res);
+            toast.success('User Created successfully')
+            setTimeout(()=>{
+                navigate('/')
+            },1500)
+        })
+        .catch(error=>{
+            //console.log(error)
+            toast.error(`Failed to sign up',${error.code}`)
+        })
+    }
   return (
     <div className="my-12 flex justify-center w-11/12 md:w-2/3 lg:w-1/3 mx-auto">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl ">
@@ -166,7 +166,7 @@ const Register = () => {
               onClick={handleGoogleLogin}
               className=" btn btn-outline hover:bg-[#ff6347] hover:text-white text-[#ff6347]  mt-4"
             >
-              <FaGoogle size={16}></FaGoogle> Continue With Google
+              <FaGoogle size={16}></FaGoogle> Login With Google
             </button>
 
             <p className="font-bold py-3 text-center">

@@ -2,7 +2,7 @@ import React from 'react';
 import Swal from 'sweetalert2';
 import { FaTrashAlt, FaEdit, FaHome } from "react-icons/fa";
 import { Link } from 'react-router';
-const MyListingDetails = ({room,index}) => {
+const MyListingDetails = ({room,index,rooms,setRooms}) => {
     //console.log(room)
    let {_id}=room
    //console.log(_id)
@@ -34,6 +34,10 @@ const MyListingDetails = ({room,index}) => {
               text: "Your file has been deleted.",
               icon: "success",
             });
+
+            //remove the post from UI
+            let remainingRooms = rooms.filter(r=>r._id!==_id)
+            setRooms(remainingRooms)
           }
         });
       };

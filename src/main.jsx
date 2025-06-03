@@ -16,6 +16,7 @@ import PrivateRoute from "./Components/PrivateRoute.jsx";
 import DetailsPage from "./Pages/DetailsPage.jsx";
 import FeaturedSection from "./Components/FeaturedSection.jsx";
 import UpdatePost from "./Components/UpdatePost.jsx";
+import Loading from "./Components/Loading.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
         index: true,
         path: "/",
         element: <Home></Home>,
-         loader: ()=>fetch('https://b11a10-server-side-sariakhatun.vercel.app/featured-rooms')
+         loader: ()=>fetch('https://b11a10-server-side-sariakhatun.vercel.app/featured-rooms'),
+         hydrateFallbackElement: <Loading></Loading>
         
       },
       {
@@ -46,12 +48,14 @@ const router = createBrowserRouter([
         ),
         loader: () =>
           fetch("https://b11a10-server-side-sariakhatun.vercel.app/rooms"),
+        hydrateFallbackElement:<Loading></Loading>
       },
       {
         path: "/browseListing",
         element: <BrowseListing></BrowseListing>,
         loader: () =>
           fetch("https://b11a10-server-side-sariakhatun.vercel.app/rooms"),
+        hydrateFallbackElement:<Loading></Loading>
       },
 
       {
@@ -64,15 +68,19 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://b11a10-server-side-sariakhatun.vercel.app/rooms/${params.id}`
           ),
+          hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: "/updatePost/:id",
         element: (
          
-            <UpdatePost></UpdatePost>
+          <PrivateRoute>
+              <UpdatePost></UpdatePost>
+          </PrivateRoute>
          
         ),
-        loader: ({params})=>fetch(`https://b11a10-server-side-sariakhatun.vercel.app/rooms/${params.id}`)
+        loader: ({params})=>fetch(`https://b11a10-server-side-sariakhatun.vercel.app/rooms/${params.id}`),
+        hydrateFallbackElement: <Loading></Loading>
        
       },
       {

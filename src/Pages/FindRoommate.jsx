@@ -33,6 +33,7 @@ const FindRoommate = () => {
           });
         }
       });
+      form.reset();
   };
 
   return (

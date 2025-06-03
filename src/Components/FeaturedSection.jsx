@@ -26,13 +26,13 @@ const FeaturedSection = () => {
             <h3 className="text-xl font-semibold text-indigo-700 mb-2 flex items-center gap-2">
               {room.title}
             </h3>
-            <p className="text-sm text-gray-600 mb-1 flex items-center gap-2">
+            <p className="text-sm text-gray-600 mb-1 flex items-center gap-2 ">
               <FaMoneyBillWave className="text-[#ff6347]" />
-              <span><strong>Rent:</strong> {room.rent} BDT</span>
+              <span className="dark:text-white"><strong>Rent:</strong> {room.rent} BDT</span>
             </p>
             <p className="text-sm text-gray-600 mb-1 flex items-center gap-2">
               <MdLocationOn className="text-[#ff6347]" size={18}/>
-              <span><strong>Location:</strong> {room.location}</span>
+              <span className="dark:text-white"><strong>Location:</strong> {room.location}</span>
             </p>
             <p className="text-sm text-gray-600 mb-3 flex items-center gap-2">
               <FaCheckCircle
@@ -41,7 +41,7 @@ const FeaturedSection = () => {
                     
                 }
               />
-              <span>
+              <span className="dark:text-white">
                 <strong>Availability:</strong>{" "}
                 <span
                   className={

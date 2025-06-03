@@ -1,12 +1,12 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { data, useLoaderData } from "react-router";
 import { AuthContext } from "../Components/AuthContext";
 import { FaTrashAlt, FaEdit, FaHome } from "react-icons/fa";
 import MyListingDetails from "./MyListingDetails";
 
 const MyListing = () => {
-  let rooms = useLoaderData();
-  
+  let initialRooms = useLoaderData();
+  let [rooms,setRooms]=useState(initialRooms)
   
   let { user } = use(AuthContext);
   //console.log(user);
@@ -48,7 +48,7 @@ const MyListing = () => {
               </thead>
               <tbody className="">
                 {
-                remainingRooms.map((room, index) => <MyListingDetails room={room} index={index} key={room._id}></MyListingDetails>
+                remainingRooms.map((room, index) => <MyListingDetails room={room} rooms={rooms} setRooms={setRooms}  index={index} key={room._id}></MyListingDetails>
             )}
               </tbody>
             </table>
