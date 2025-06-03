@@ -52,9 +52,9 @@ const Register = () => {
            // setSuccess(true)
             setUser({...user, displayName:name,
             photoURL:photo});
-            setTimeout(()=>{
-                navigate('/')
-            },1500)
+           setTimeout(()=>{
+             navigate(`${location.state ? location.state :'/'}`)
+           },1500)
            
 
         }).catch(error=>{

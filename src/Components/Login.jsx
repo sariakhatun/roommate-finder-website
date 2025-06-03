@@ -44,8 +44,8 @@ const Login = () => {
            // console.log(res);
             toast.success('User Created successfully')
              setTimeout(()=>{
-                navigate('/')
-            },1500)
+             navigate(`${location.state ? location.state :'/'}`)
+           },1500)
         })
         .catch(error=>{
            // console.log(error)
