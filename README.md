@@ -15,7 +15,7 @@ Roommate Finder Website is a responsive and user-friendly platform that helps us
 ---
 
 
-# 🏠 Roommate Finder Website
+# 🏠 Roommate Finder Website Overview
 Short Project Overview
 Roommate Finder Website is a modern, responsive platform designed to help users find compatible roommates and available rooms based on location, rent, and lifestyle preferences. It enables users to browse listings, post new rooms, and securely manage their postings, leveraging Firebase Authentication for seamless and protected user access.
 
@@ -82,8 +82,8 @@ Roommate Finder Website is a modern, responsive platform designed to help users 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/roommate-finder.git
-   cd roommate-finder
+  https://github.com/sariakhatun/roommate-finder-website
+   cd roommate-finder-website
    ```
 
 2. Install dependencies:
