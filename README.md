@@ -81,7 +81,7 @@ Roommate Finder Website is a modern, responsive platform designed to help users 
 
 1. Clone the repository:
  ```bash
-  https://github.com/sariakhatun/roommate-finder-website
+https://github.com/sariakhatun/roommate-finder-website
    cd roommate-finder-website
    ```
 
